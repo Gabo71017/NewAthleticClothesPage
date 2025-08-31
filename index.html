@@ -1,101 +1,36 @@
-import { useState } from "react";
-import { ShoppingCart } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Athletic Clothes - Suplementos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-// Datos de ejemplo (pueden venir de una base de datos o API)
-const products = [
-  {
-    id: 1,
-    name: "TNT MEGA MASS GAINER 10LB",
-    price: 195000,
-    oldPrice: 215000,
-    image: "https://via.placeholder.com/200x200.png?text=TNT+10LB",
-    oferta: true,
-  },
-  {
-    id: 2,
-    name: "SMART GAINER 3LB",
-    price: 90000,
-    oldPrice: 98000,
-    image: "https://via.placeholder.com/200x200.png?text=SMART+3LB",
-    oferta: true,
-  },
-  {
-    id: 3,
-    name: "TNT MEGA MASS GAINER 3LB",
-    price: 77000,
-    oldPrice: 97000,
-    image: "https://via.placeholder.com/200x200.png?text=TNT+3LB",
-    oferta: true,
-  },
-  {
-    id: 4,
-    name: "CARNIVOR MASS 6LB",
-    price: 252000,
-    oldPrice: 272000,
-    image: "https://via.placeholder.com/200x200.png?text=CARNIVOR+6LB",
-    oferta: true,
-  },
-];
-
-export default function SuplementosPage() {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-  };
-
-  return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-yellow-400 p-4 flex justify-between items-center shadow">
-        <h1 className="text-xl font-bold">New Athletic Clothes - Suplementos</h1>
-        <div className="flex items-center gap-2">
-          <ShoppingCart />
-          <span>{cart.length}</span>
-        </div>
-      </header>
-
-      {/* Banner */}
-      <div className="bg-black text-white text-center py-3 font-semibold">
-        🚚 Envíos gratis a todo Colombia
-      </div>
-
-      {/* Catálogo */}
-      <main className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map((product) => (
-          <Card key={product.id} className="shadow-lg hover:scale-105 transition-all">
-            <CardContent className="p-4 text-center">
-              {product.oferta && (
-                <span className="bg-yellow-400 px-2 py-1 text-xs font-bold rounded absolute mt-[-10px] ml-[-10px]">
-                  ¡OFERTA!
-                </span>
-              )}
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-40 object-contain mb-4"
-              />
-              <h2 className="font-bold text-sm mb-2">{product.name}</h2>
-              <p className="line-through text-gray-500 text-xs">
-                ${product.oldPrice.toLocaleString()}
-              </p>
-              <p className="text-lg font-bold text-red-600">
-                ${product.price.toLocaleString()}
-              </p>
-              <Button className="mt-3 w-full" onClick={() => addToCart(product)}>
-                Agregar al carrito
-              </Button>
-            </CardContent>
-          </Card>
-        ))}
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-gray-100 p-4 text-center text-sm text-gray-600">
-        © 2025 New Athletic Clothes | Suplementación deportiva
-      </footer>
+  <!-- Header -->
+  <header class="header">
+    <h1>New Athletic Clothes - Suplementos</h1>
+    <div class="cart">
+      🛒 Carrito: <span id="cart-count">0</span>
     </div>
-  );
-}
+  </header>
+
+  <!-- Banner -->
+  <div class="banner">
+    🚚 Envíos gratis a todo Colombia
+  </div>
+
+  <!-- Catálogo -->
+  <main class="catalogo" id="catalogo">
+    <!-- Los productos se generan con JS -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 New Athletic Clothes | Suplementación deportiva
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
