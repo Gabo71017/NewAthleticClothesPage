@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Athletic Clothes</title>
+  <title>New Athletic Clothes - Suplementos</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -29,29 +29,54 @@
       font-size: 2rem;
     }
 
-    .container {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
+    .banner {
+      background: #000000;
+      color: #ffffff;
+      padding: 10px;
+      font-weight: bold;
     }
 
-    .section {
+    .container {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
       border: 2px solid #000000;
       border-radius: 10px;
-      padding: 20px;
-      margin: 20px 0;
+      padding: 15px;
       background-color: #ffffff;
     }
 
-    .section h2 {
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      font-size: 1.3rem;
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
     }
 
-    .section p {
-      font-size: 1rem;
-      line-height: 1.6;
+    .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    .oferta {
+      background: #000000;
+      color: #ffffff;
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 8px;
     }
 
     footer {
@@ -69,35 +94,51 @@
   </header>
 
   <!-- Título principal -->
-  <h1>New Athletic Clothes</h1>
+  <h1>New Athletic Clothes - Suplementos</h1>
 
-  <!-- Secciones -->
+  <!-- Banner -->
+  <div class="banner">
+    🚚 Envíos gratis a todo Colombia
+  </div>
+
+  <!-- Catálogo de suplementos -->
   <div class="container">
-    <div class="section">
-      <h2>Sobre Nosotros</h2>
-      <p>
-        En <strong>New Athletic Clothes</strong> ofrecemos suplementos deportivos de alta calidad y ropa diseñada para quienes buscan superar sus límites.
-      </p>
+    <div class="card">
+      <span class="oferta">¡OFERTA!</span>
+      <img src="https://via.placeholder.com/200x200.png?text=TNT+10LB" alt="TNT Mega Mass Gainer 10LB">
+      <h3>TNT Mega Mass Gainer 10LB</h3>
+      <p class="old-price">$215,000</p>
+      <p class="price">$195,000</p>
     </div>
 
-    <div class="section">
-      <h2>Suplementos</h2>
-      <p>
-        Proteínas, creatinas e hipercalóricos adaptados a tus objetivos: aumentar masa muscular, energía y rendimiento.
-      </p>
+    <div class="card">
+      <span class="oferta">¡OFERTA!</span>
+      <img src="https://via.placeholder.com/200x200.png?text=SMART+3LB" alt="Smart Gainer 3LB">
+      <h3>Smart Gainer 3LB</h3>
+      <p class="old-price">$98,000</p>
+      <p class="price">$90,000</p>
     </div>
 
-    <div class="section">
-      <h2>Ropa Deportiva</h2>
-      <p>
-        Ropa deportiva con estilo y comodidad para tu entrenamiento diario y competencias.
-      </p>
+    <div class="card">
+      <span class="oferta">¡OFERTA!</span>
+      <img src="https://via.placeholder.com/200x200.png?text=TNT+3LB" alt="TNT Mega Mass Gainer 3LB">
+      <h3>TNT Mega Mass Gainer 3LB</h3>
+      <p class="old-price">$97,000</p>
+      <p class="price">$77,000</p>
+    </div>
+
+    <div class="card">
+      <span class="oferta">¡OFERTA!</span>
+      <img src="https://via.placeholder.com/200x200.png?text=CARNIVOR+6LB" alt="Carnivor Mass 6LB">
+      <h3>Carnivor Mass 6LB</h3>
+      <p class="old-price">$272,000</p>
+      <p class="price">$252,000</p>
     </div>
   </div>
 
   <!-- Pie de página -->
   <footer>
-    <p>&copy; 2025 New Athletic Clothes - Todos los derechos reservados</p>
+    <p>&copy; 2025 New Athletic Clothes - Suplementación deportiva</p>
   </footer>
 </body>
 </html>
