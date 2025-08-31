@@ -3,34 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Athletic Clothes - Suplementos</title>
-  <link rel="stylesheet" href="style.css">
+  <title>New Athletic Clothes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #000000;
+      text-align: center;
+    }
+
+    header {
+      background-color: #000000;
+      padding: 20px;
+    }
+
+    header img {
+      max-width: 180px;
+      height: auto;
+    }
+
+    h1 {
+      margin: 20px 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section {
+      border: 2px solid #000000;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      background-color: #ffffff;
+    }
+
+    .section h2 {
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      font-size: 1.3rem;
+    }
+
+    .section p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="header">
-    <h1>New Athletic Clothes - Suplementos</h1>
-    <div class="cart">
-      🛒 Carrito: <span id="cart-count">0</span>
-    </div>
+  <!-- Encabezado con el logo -->
+  <header>
+    <img src="logo.png" alt="Logo de New Athletic Clothes">
   </header>
 
-  <!-- Banner -->
-  <div class="banner">
-    🚚 Envíos gratis a todo Colombia
+  <!-- Título principal -->
+  <h1>New Athletic Clothes</h1>
+
+  <!-- Secciones -->
+  <div class="container">
+    <div class="section">
+      <h2>Sobre Nosotros</h2>
+      <p>
+        En <strong>New Athletic Clothes</strong> ofrecemos suplementos deportivos de alta calidad y ropa diseñada para quienes buscan superar sus límites.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Suplementos</h2>
+      <p>
+        Proteínas, creatinas e hipercalóricos adaptados a tus objetivos: aumentar masa muscular, energía y rendimiento.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Ropa Deportiva</h2>
+      <p>
+        Ropa deportiva con estilo y comodidad para tu entrenamiento diario y competencias.
+      </p>
+    </div>
   </div>
 
-  <!-- Catálogo -->
-  <main class="catalogo" id="catalogo">
-    <!-- Los productos se generan con JS -->
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    © 2025 New Athletic Clothes | Suplementación deportiva
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2025 New Athletic Clothes - Todos los derechos reservados</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
