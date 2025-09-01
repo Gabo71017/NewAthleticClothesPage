@@ -1,8 +1,10 @@
+/* =================== ESTILOS GENERALES =================== */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #fff;
   color: #333;
+  line-height: 1.5;
 }
 
 /* =================== MENÚ =================== */
@@ -22,6 +24,14 @@ nav ul li {
   position: relative;
 }
 
+nav ul li a {
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
 nav ul li a:hover {
   background: #333;
 }
@@ -30,14 +40,29 @@ nav ul li a:hover {
 nav ul li ul {
   display: none;
   position: absolute;
-  background: white;
+  top: 100%;
+  left: 0;
+  background: #fff;
   list-style: none;
   padding: 10px;
+  margin: 0;
   border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 160px;
+  z-index: 1000;
 }
 
 nav ul li ul li {
-  margin: 5px 0;
+  margin: 0;
+}
+
+nav ul li ul li a {
+  color: #333;
+  padding: 8px 12px;
+}
+
+nav ul li ul li a:hover {
+  background: #f5f5f5;
 }
 
 nav ul li.active ul {
@@ -52,27 +77,31 @@ nav ul li.active ul {
 
 .icon i {
   font-size: 18px;
+  color: #fff;
+  cursor: pointer;
 }
 
-
-/* =================== HEADER Y DEMÁS =================== */
+/* =================== HEADER =================== */
 .header {
   background: #facc15;
-  padding: 15px;
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
 }
 
+/* =================== BANNER =================== */
 .banner {
   background: #000;
   color: #fff;
   text-align: center;
-  padding: 10px;
+  padding: 12px;
   font-weight: bold;
+  font-size: 16px;
 }
 
+/* =================== CATÁLOGO =================== */
 .catalogo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -83,7 +112,7 @@ nav ul li.active ul {
 .producto {
   border: 1px solid #ddd;
   border-radius: 12px;
-  padding: 20px 15px; /* más espacio interior */
+  padding: 20px 15px;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
   position: relative;
@@ -116,7 +145,7 @@ nav ul li.active ul {
 .producto h2 {
   font-size: 16px;
   margin: 10px 0;
-  min-height: 40px; /* altura mínima para títulos */
+  min-height: 40px; /* asegura alineación uniforme */
 }
 
 .precio-anterior {
@@ -130,7 +159,7 @@ nav ul li.active ul {
   font-size: 18px;
   color: #dc2626;
   font-weight: bold;
-  margin: 5px 0 15px; /* espacio extra abajo para separar del botón */
+  margin: 5px 0 15px;
 }
 
 .boton {
@@ -151,10 +180,36 @@ nav ul li.active ul {
   transform: scale(1.03);
 }
 
+/* =================== FOOTER =================== */
 .footer {
   background: #f5f5f5;
   text-align: center;
   padding: 15px;
   font-size: 14px;
   color: #666;
+  margin-top: 30px;
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 768px) {
+  .menu {
+    gap: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li a {
+    padding: 10px;
+  }
+
+  .banner {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .producto img {
+    height: 140px;
+  }
 }
