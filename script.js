@@ -1,17 +1,43 @@
-/* ==================== MENÚ DESPLEGABLE ==================== */
-document.querySelectorAll(".submenu > .menu-item").forEach(item => {
-  item.addEventListener("click", e => {
-    e.preventDefault();
-    const parent = item.parentElement;
+document.addEventListener("DOMContentLoaded", () => {
+  // Botón de menú hamburguesa
+  const menuBtn = document.querySelector(".menu-btn");
+  const navMenu = document.querySelector(".nav-links");
 
-    // Cierra los otros submenús
-    document.querySelectorAll(".submenu").forEach(sub => {
-      if (sub !== parent) {
-        sub.classList.remove("active");
-      }
+  if (menuBtn && navMenu) {
+    menuBtn.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+      menuBtn.classList.toggle("active");
     });
+  }
 
-    // Alterna el submenú clicado
-    parent.classList.toggle("active");
+  // Animación en los botones de productos
+  const productButtons = document.querySelectorAll(".product-card button");
+
+  productButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.classList.add("clicked");
+
+      setTimeout(() => {
+        btn.classList.remove("clicked");
+      }, 300);
+    });
+  });
+
+  // Animación de aparición de productos con scroll
+  const products = document.querySelectorAll(".product-card");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  products.forEach((product) => {
+    observer.observe(product);
   });
 });
