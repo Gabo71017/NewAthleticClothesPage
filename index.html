@@ -4,167 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Athletic Clothes - Suplementos</title>
-  <style>
-    body {
-      font-family: Montserrat, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #ffffff;
-      color: #000000;
-      text-align: center;
-    }
-
-    header {
-      background-color: #ffffff;
-      padding: 20px;
-    }
-
-    header img {
-      max-width: 180px;
-      height: auto;
-    }
-
-    /* Navbar */
-    .menu {
-      background-color: #000000;
-      padding: 10px 0;
-    }
-
-    .menu ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .menu li {
-      position: relative;
-    }
-
-    .menu a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.95rem;
-      padding: 8px 12px;
-      transition: color 0.3s;
-      text-transform: uppercase; /* 👈 fuerza mayúsculas */
-    }
-
-    .menu a:hover {
-      color: #FFD700;
-    }
-
-    /* Dropdown */
-    .submenu-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #111;
-      min-width: 160px;
-      border-radius: 5px;
-      z-index: 1000;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .submenu-content li a {
-      display: block;
-      padding: 10px;
-      font-weight: normal;
-      color: #fff;
-      text-transform: none; /* 👈 los submenús sí pueden estar normales */
-    }
-
-    /* Mostrar submenú al pasar el mouse */
-    .submenu:hover .submenu-content {
-      display: block;
-    }
-
-    .banner {
-      background: #d9d9d9;
-      color: #000000;
-      padding: 10px;
-      font-weight: bold;
-    }
-
-    .container {
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      border: 2px solid #000000;
-      border-radius: 10px;
-      padding: 15px;
-      background-color: #ffffff;
-      transition: transform 0.2s;
-    }
-
-    .card:hover {
-      transform: scale(1.03);
-    }
-
-    .card img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-
-    .price {
-      font-size: 1.2rem;
-      color: #000000;
-      font-weight: bold;
-      margin: 5px 0;
-    }
-
-    .old-price {
-      text-decoration: line-through;
-      color: #555;
-      font-size: 0.9rem;
-    }
-
-    .oferta {
-      background: #000000;
-      color: #ffffff;
-      padding: 3px 8px;
-      border-radius: 5px;
-      font-size: 0.8rem;
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-
-    .add-cart {
-      margin-top: 10px;
-      background: #000000;
-      color: #fff;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .add-cart:hover {
-      background: #FFD700;
-      color: #000;
-    }
-
-    footer {
-      background-color: #000000;
-      color: #ffffff;
-      padding: 15px;
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <!-- FontAwesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
   <!-- Encabezado con el logo -->
@@ -173,9 +15,9 @@
   </header>
 
   <!-- ========== MENÚ ========== -->
- <nav>
-  <ul class="menu">
-    <li><a href="#">INICIO</a></li>
+  <nav>
+    <ul class="menu">
+      <li><a href="#">INICIO</a></li>
       <li class="submenu">
         <a href="#">CATEGORÍAS</a>
         <ul class="submenu-content">
@@ -199,16 +41,22 @@
         </ul>
       </li>
 
-    <li><a href="#">COMBOS</a></li>
-    <li><a href="#">OFERTAS</a></li>
-    <li><a href="#">MI CUENTA</a></li>
-    
-    <!-- Lupa y carrito -->
-    <li class="icon"><a href="#"><i class="fas fa-search"></i></a></li>
-    <li class="icon"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-  </ul>
-</nav>
-
+      <li><a href="#">COMBOS</a></li>
+      <li><a href="#">OFERTAS</a></li>
+      <li><a href="#">MI CUENTA</a></li>
+      
+      <!-- Lupa y carrito -->
+      <li class="icon">
+        <a href="#" id="buscador-icono"><i class="fas fa-search"></i></a>
+      </li>
+      <li class="icon">
+        <a href="#" id="carrito-icono">
+          <i class="fas fa-shopping-cart"></i> 
+          <span id="cart-count">0</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
   <!-- Banner -->
   <div class="banner">
@@ -217,40 +65,40 @@
 
   <!-- Catálogo de suplementos -->
   <div class="container">
-    <div class="card">
+    <div class="producto">
       <span class="oferta">¡OFERTA!</span>
       <img src="https://via.placeholder.com/200x200.png?text=TNT+10LB" alt="TNT Mega Mass Gainer 10LB">
-      <h3>TNT Mega Mass Gainer 10LB</h3>
-      <p class="old-price">$215,000</p>
-      <p class="price">$195,000</p>
-      <button class="add-cart">Agregar al carrito</button>
+      <h2>TNT Mega Mass Gainer 10LB</h2>
+      <p class="precio-anterior">$215,000</p>
+      <p class="precio">$195,000</p>
+      <button class="boton" data-nombre="TNT Mega Mass Gainer 10LB" data-precio="$195,000">Agregar al carrito</button>
     </div>
 
-    <div class="card">
+    <div class="producto">
       <span class="oferta">¡OFERTA!</span>
       <img src="https://via.placeholder.com/200x200.png?text=SMART+3LB" alt="Smart Gainer 3LB">
-      <h3>Smart Gainer 3LB</h3>
-      <p class="old-price">$98,000</p>
-      <p class="price">$90,000</p>
-      <button class="add-cart">Agregar al carrito</button>
+      <h2>Smart Gainer 3LB</h2>
+      <p class="precio-anterior">$98,000</p>
+      <p class="precio">$90,000</p>
+      <button class="boton" data-nombre="Smart Gainer 3LB" data-precio="$90,000">Agregar al carrito</button>
     </div>
 
-    <div class="card">
+    <div class="producto">
       <span class="oferta">¡OFERTA!</span>
       <img src="https://via.placeholder.com/200x200.png?text=TNT+3LB" alt="TNT Mega Mass Gainer 3LB">
-      <h3>TNT Mega Mass Gainer 3LB</h3>
-      <p class="old-price">$97,000</p>
-      <p class="price">$77,000</p>
-      <button class="add-cart">Agregar al carrito</button>
+      <h2>TNT Mega Mass Gainer 3LB</h2>
+      <p class="precio-anterior">$97,000</p>
+      <p class="precio">$77,000</p>
+      <button class="boton" data-nombre="TNT Mega Mass Gainer 3LB" data-precio="$77,000">Agregar al carrito</button>
     </div>
 
-    <div class="card">
+    <div class="producto">
       <span class="oferta">¡OFERTA!</span>
       <img src="https://via.placeholder.com/200x200.png?text=CARNIVOR+6LB" alt="Carnivor Mass 6LB">
-      <h3>Carnivor Mass 6LB</h3>
-      <p class="old-price">$272,000</p>
-      <p class="price">$252,000</p>
-      <button class="add-cart">Agregar al carrito</button>
+      <h2>Carnivor Mass 6LB</h2>
+      <p class="precio-anterior">$272,000</p>
+      <p class="precio">$252,000</p>
+      <button class="boton" data-nombre="Carnivor Mass 6LB" data-precio="$252,000">Agregar al carrito</button>
     </div>
   </div>
 
@@ -260,13 +108,6 @@
   </footer>
 
   <!-- ========== JS ========== -->
-  <script>
-    // Botones de carrito
-    document.querySelectorAll(".add-cart").forEach(btn => {
-      btn.addEventListener("click", () => {
-        alert("Producto agregado al carrito 🛒");
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
