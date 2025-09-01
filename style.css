@@ -5,6 +5,57 @@ body {
   color: #333;
 }
 
+/* =================== MENÚ =================== */
+nav {
+  background: #000;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  display: block;
+  padding: 15px 20px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+nav ul li a:hover {
+  background: #333;
+}
+
+/* Submenús */
+nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #000;
+  min-width: 180px;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+nav ul li ul li a {
+  padding: 12px 15px;
+  text-transform: none; /* para que los submenús se vean normales */
+}
+
+nav ul li:hover ul {
+  display: flex;
+}
+
+/* =================== HEADER Y DEMÁS =================== */
 .header {
   background: #facc15;
   padding: 15px;
