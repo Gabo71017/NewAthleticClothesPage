@@ -51,6 +51,7 @@
       font-size: 0.95rem;
       padding: 8px 12px;
       transition: color 0.3s;
+      text-transform: uppercase; /* 👈 fuerza mayúsculas */
     }
 
     .menu a:hover {
@@ -64,7 +65,7 @@
       top: 100%;
       left: 0;
       background: #111;
-      min-width: 150px;
+      min-width: 160px;
       border-radius: 5px;
       z-index: 1000;
       list-style: none;
@@ -77,9 +78,11 @@
       padding: 10px;
       font-weight: normal;
       color: #fff;
+      text-transform: none; /* 👈 los submenús sí pueden estar normales */
     }
 
-    .submenu.open .submenu-content {
+    /* Mostrar submenú al pasar el mouse */
+    .submenu:hover .submenu-content {
       display: block;
     }
 
@@ -104,6 +107,11 @@
       border-radius: 10px;
       padding: 15px;
       background-color: #ffffff;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
     }
 
     .card img {
@@ -167,24 +175,28 @@
   <!-- ========== MENÚ ========== -->
   <nav class="menu">
     <ul>
-      <li><a href="#">Inicio</a></li>
+      <li><a href="#">INICIO</a></li>
       <li class="submenu">
-        <a href="#" class="menu-toggle">Categorías ▾</a>
+        <a href="#">CATEGORÍAS ▾</a>
         <ul class="submenu-content">
           <li><a href="#">Proteínas</a></li>
           <li><a href="#">Aminoácidos</a></li>
+          <li><a href="#">Creatina</a></li>
+          <li><a href="#">Vitaminas</a></li>
         </ul>
       </li>
       <li class="submenu">
-        <a href="#" class="menu-toggle">Marcas ▾</a>
+        <a href="#">MARCAS ▾</a>
         <ul class="submenu-content">
           <li><a href="#">TNT</a></li>
           <li><a href="#">Smart Nutrition</a></li>
           <li><a href="#">Carnivor</a></li>
+          <li><a href="#">Universal</a></li>
         </ul>
       </li>
-      <li><a href="#">Ofertas</a></li>
-      <li><a href="#">Mi Cuenta</a></li>
+      <li><a href="#">COMBOS</a></li>
+      <li><a href="#">OFERTAS</a></li>
+      <li><a href="#">MI CUENTA</a></li>
     </ul>
   </nav>
 
@@ -239,22 +251,6 @@
 
   <!-- ========== JS ========== -->
   <script>
-    // Desplegar submenús al hacer click
-    document.querySelectorAll(".menu-toggle").forEach(button => {
-      button.addEventListener("click", function(e) {
-        e.preventDefault();
-        const parent = this.parentElement;
-
-        // Cierra otros menús abiertos
-        document.querySelectorAll(".submenu").forEach(sub => {
-          if (sub !== parent) sub.classList.remove("open");
-        });
-
-        // Alterna el actual
-        parent.classList.toggle("open");
-      });
-    });
-
     // Botones de carrito
     document.querySelectorAll(".add-cart").forEach(btn => {
       btn.addEventListener("click", () => {
