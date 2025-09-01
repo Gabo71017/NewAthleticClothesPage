@@ -22,14 +22,6 @@ nav ul li {
   position: relative;
 }
 
-nav ul li a {
-  display: block;
-  padding: 15px 20px;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
 nav ul li a:hover {
   background: #333;
 }
@@ -38,22 +30,30 @@ nav ul li a:hover {
 nav ul li ul {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  background: #000;
-  min-width: 180px;
-  flex-direction: column;
-  z-index: 1000;
+  background: white;
+  list-style: none;
+  padding: 10px;
+  border: 1px solid #ccc;
 }
 
-nav ul li ul li a {
-  padding: 12px 15px;
-  text-transform: none; /* para que los submenús se vean normales */
+nav ul li ul li {
+  margin: 5px 0;
 }
 
-nav ul li:hover ul {
+nav ul li.active ul {
+  display: block;
+}
+
+.menu {
   display: flex;
+  align-items: center;
+  gap: 20px;
 }
+
+.icon i {
+  font-size: 18px;
+}
+
 
 /* =================== HEADER Y DEMÁS =================== */
 .header {
