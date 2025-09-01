@@ -1,43 +1,81 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Botón de menú hamburguesa
-  const menuBtn = document.querySelector(".menu-btn");
-  const navMenu = document.querySelector(".nav-links");
+/* ==================== VARIABLES ==================== */
+let carrito = [];
+const carritoIcono = document.getElementById("carrito-icono");
+const cartCount = document.getElementById("cart-count");
+const buscadorIcono = document.getElementById("buscador-icono");
 
-  if (menuBtn && navMenu) {
-    menuBtn.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-      menuBtn.classList.toggle("active");
+/* ==================== MODAL DEL CARRITO ==================== */
+const modal = document.createElement("div");
+modal.style.position = "fixed";
+modal.style.top = "0";
+modal.style.right = "-100%";
+modal.style.width = "300px";
+modal.style.height = "100%";
+modal.style.background = "#fff";
+modal.style.color = "#000";
+modal.style.borderLeft = "2px solid #000";
+modal.style.boxShadow = "-4px 0 8px rgba(0,0,0,0.2)";
+modal.style.transition = "right 0.3s";
+modal.style.padding = "20px";
+modal.style.zIndex = "9999";
+modal.innerHTML = `
+  <h2>🛒 Carrito</h2>
+  <ul id='lista-carrito'></ul>
+  <button id='vaciar-carrito'>Vaciar Carrito</button>
+`;
+document.body.appendChild(modal);
+
+carritoIcono.addEventListener("click", (e) => {
+  e.preventDefault();
+  modal.style.right = modal.style.right === "0px" ? "-100%" : "0";
+});
+
+/* ==================== FUNCIONES DEL CARRITO ==================== */
+function actualizarCarrito() {
+  const lista = document.getElementById("lista-carrito");
+  lista.innerHTML = "";
+  carrito.forEach((prod, index) => {
+    const li = document.createElement("li");
+    li.textContent = `${prod.nombre} - ${prod.precio}`;
+    const btnEliminar = document.createElement("button");
+    btnEliminar.textContent = "❌";
+    btnEliminar.style.marginLeft = "10px";
+    btnEliminar.addEventListener("click", () => {
+      carrito.splice(index, 1);
+      actualizarCarrito();
+    });
+    li.appendChild(btnEliminar);
+    lista.appendChild(li);
+  });
+  cartCount.textContent = carrito.length;
+}
+
+// Detectar clicks en botones "Agregar al carrito"
+document.querySelectorAll(".boton").forEach(boton => {
+  boton.addEventListener("click", () => {
+    const producto = {
+      nombre: boton.getAttribute("data-nombre"),
+      precio: boton.getAttribute("data-precio")
+    };
+    carrito.push(producto);
+    actualizarCarrito();
+  });
+});
+
+// Vaciar carrito
+document.getElementById("vaciar-carrito").addEventListener("click", () => {
+  carrito = [];
+  actualizarCarrito();
+});
+
+/* ==================== BUSCADOR ==================== */
+buscadorIcono.addEventListener("click", (e) => {
+  e.preventDefault();
+  const termino = prompt("🔍 ¿Qué producto buscas?");
+  if (termino) {
+    document.querySelectorAll(".producto").forEach(prod => {
+      const nombre = prod.querySelector("h2").textContent.toLowerCase();
+      prod.style.display = nombre.includes(termino.toLowerCase()) ? "block" : "none";
     });
   }
-
-  // Animación en los botones de productos
-  const productButtons = document.querySelectorAll(".product-card button");
-
-  productButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      btn.classList.add("clicked");
-
-      setTimeout(() => {
-        btn.classList.remove("clicked");
-      }, 300);
-    });
-  });
-
-  // Animación de aparición de productos con scroll
-  const products = document.querySelectorAll(".product-card");
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  products.forEach((product) => {
-    observer.observe(product);
-  });
 });
