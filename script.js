@@ -1,81 +1,111 @@
-/* ==================== VARIABLES ==================== */
-let carrito = [];
-const carritoIcono = document.getElementById("carrito-icono");
-const cartCount = document.getElementById("cart-count");
-const buscadorIcono = document.getElementById("buscador-icono");
-
-/* ==================== MODAL DEL CARRITO ==================== */
-const modal = document.createElement("div");
-modal.style.position = "fixed";
-modal.style.top = "0";
-modal.style.right = "-100%";
-modal.style.width = "300px";
-modal.style.height = "100%";
-modal.style.background = "#fff";
-modal.style.color = "#000";
-modal.style.borderLeft = "2px solid #000";
-modal.style.boxShadow = "-4px 0 8px rgba(0,0,0,0.2)";
-modal.style.transition = "right 0.3s";
-modal.style.padding = "20px";
-modal.style.zIndex = "9999";
-modal.innerHTML = `
-  <h2>🛒 Carrito</h2>
-  <ul id='lista-carrito'></ul>
-  <button id='vaciar-carrito'>Vaciar Carrito</button>
-`;
-document.body.appendChild(modal);
-
-carritoIcono.addEventListener("click", (e) => {
-  e.preventDefault();
-  modal.style.right = modal.style.right === "0px" ? "-100%" : "0";
-});
-
-/* ==================== FUNCIONES DEL CARRITO ==================== */
-function actualizarCarrito() {
-  const lista = document.getElementById("lista-carrito");
-  lista.innerHTML = "";
-  carrito.forEach((prod, index) => {
-    const li = document.createElement("li");
-    li.textContent = `${prod.nombre} - ${prod.precio}`;
-    const btnEliminar = document.createElement("button");
-    btnEliminar.textContent = "❌";
-    btnEliminar.style.marginLeft = "10px";
-    btnEliminar.addEventListener("click", () => {
-      carrito.splice(index, 1);
-      actualizarCarrito();
-    });
-    li.appendChild(btnEliminar);
-    lista.appendChild(li);
-  });
-  cartCount.textContent = carrito.length;
+/* ==================== ESTILOS GENERALES ==================== */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #111;
+  color: #fff;
 }
 
-// Detectar clicks en botones "Agregar al carrito"
-document.querySelectorAll(".boton").forEach(boton => {
-  boton.addEventListener("click", () => {
-    const producto = {
-      nombre: boton.getAttribute("data-nombre"),
-      precio: boton.getAttribute("data-precio")
-    };
-    carrito.push(producto);
-    actualizarCarrito();
-  });
-});
+h2 {
+  font-size: 1rem;
+  margin: 10px 0;
+  text-align: center;
+}
 
-// Vaciar carrito
-document.getElementById("vaciar-carrito").addEventListener("click", () => {
-  carrito = [];
-  actualizarCarrito();
-});
+/* ==================== CATÁLOGO ==================== */
+#catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
 
-/* ==================== BUSCADOR ==================== */
-buscadorIcono.addEventListener("click", (e) => {
-  e.preventDefault();
-  const termino = prompt("🔍 ¿Qué producto buscas?");
-  if (termino) {
-    document.querySelectorAll(".producto").forEach(prod => {
-      const nombre = prod.querySelector("h2").textContent.toLowerCase();
-      prod.style.display = nombre.includes(termino.toLowerCase()) ? "block" : "none";
-    });
-  }
-});
+.producto {
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+}
+
+.producto img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* ==================== PRECIOS ==================== */
+.precio-anterior {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.precio {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #FFD700;
+}
+
+/* ==================== OFERTA ==================== */
+.oferta {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: red;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 5px 8px;
+  border-radius: 8px;
+}
+
+/* ==================== BOTONES ==================== */
+.boton {
+  margin-top: 10px;
+  background: #FFD700;
+  color: #000;
+  border: none;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.boton:hover {
+  background: #ffb700;
+  transform: scale(1.05);
+}
+
+/* ==================== CARRITO ==================== */
+#carrito-icono {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #FFD700;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 50%;
+}
