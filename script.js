@@ -10,6 +10,18 @@ h2 {
   font-size: 1rem;
   margin: 10px 0;
   text-align: center;
+
+<script>
+  let carrito = [];
+  let total = 0;
+
+  function agregarAlCarrito(producto, precio) {
+    carrito.push({ producto, precio });
+    total += precio;
+
+    alert(producto + " agregado al carrito. Total: $" + total.toLocaleString());
+  }
+</script>
 }
 
 /* ==================== CATÁLOGO ==================== */
