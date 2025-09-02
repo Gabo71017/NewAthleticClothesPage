@@ -4,143 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Athletic Clothes - Suplementos</title>
-  <style>
-    body {
-      font-family: Montserrat, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #ffffff;
-      color: #000000;
-      text-align: center;
-    }
-
-    header {
-      background-color: #ffffff;
-      padding: 20px;
-    }
-
-    header img {
-      max-width: 180px;
-      height: auto;
-    }
-
-    /* Navbar */
-    .navbar {
-      background-color: #000000;
-      padding: 10px 0;
-    }
-
-    .navbar ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .navbar li {
-      position: relative;
-    }
-
-    .navbar a {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.95rem;
-      padding: 8px 12px;
-      transition: color 0.3s;
-    }
-
-    .navbar a:hover {
-      color: #FFD700; /* Amarillo al pasar el mouse */
-    }
-
-    /* Dropdown */
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #111;
-      min-width: 150px;
-      border-radius: 5px;
-      z-index: 1000;
-    }
-
-    .dropdown-content li {
-      display: block;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 10px;
-      font-weight: normal;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .banner {
-      background: #d9d9d9;
-      color: #000000;
-      padding: 10px;
-      font-weight: bold;
-    }
-
-    .container {
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      border: 2px solid #000000;
-      border-radius: 10px;
-      padding: 15px;
-      background-color: #ffffff;
-    }
-
-    .card img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-
-    .price {
-      font-size: 1.2rem;
-      color: #000000;
-      font-weight: bold;
-      margin: 5px 0;
-    }
-
-    .old-price {
-      text-decoration: line-through;
-      color: #555;
-      font-size: 0.9rem;
-    }
-
-    .oferta {
-      background: #000000;
-      color: #ffffff;
-      padding: 3px 8px;
-      border-radius: 5px;
-      font-size: 0.8rem;
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-
-    footer {
-      background-color: #000000;
-      color: #ffffff;
-      padding: 15px;
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Encabezado con el logo -->
@@ -171,7 +35,7 @@
       <li><a href="#">COMBOS</a></li>
       <li><a href="#">OFERTAS</a></li>
       <li><a href="#">MI CUENTA</a></li>
-      <li><a href="#"><span class="cart">🛒</span></a></li>
+      <li><a href="#"><span class="cart">🛒 <span id="cart-count">0</span></span></a></li>
       <li><a href="#"><span class="search">🔍</span></a></li>
     </ul>
   </nav>
@@ -182,48 +46,50 @@
   </div>
 
   <!-- Catálogo de suplementos -->
-  <div class="container">
-  <div class="card">
-    <span class="oferta">¡OFERTA!</span>
-    <img src="https://via.placeholder.com/200x200.png?text=TNT+10LB" alt="TNT Mega Mass Gainer 10LB">
-    <h3>TNT Mega Mass Gainer 10LB</h3>
-    <p class="old-price">$215,000</p>
-    <p class="price">$195,000</p>
-    <button class="boton" onclick="agregarAlCarrito('TNT Mega Mass Gainer 10LB', 195000)">Agregar al carrito</button>
-  </div>
+  <div class="catalogo" id="catalogo">
+    <div class="producto">
+      <span class="oferta">¡OFERTA!</span>
+      <img src="https://via.placeholder.com/200x200.png?text=TNT+10LB" alt="TNT Mega Mass Gainer 10LB">
+      <h2>TNT Mega Mass Gainer 10LB</h2>
+      <p class="precio-anterior">$215,000</p>
+      <p class="precio">$195,000</p>
+      <button class="boton" onclick="agregarAlCarrito('TNT Mega Mass Gainer 10LB', 195000)">Agregar al carrito</button>
+    </div>
 
-  <div class="card">
-    <span class="oferta">¡OFERTA!</span>
-    <img src="https://via.placeholder.com/200x200.png?text=SMART+3LB" alt="Smart Gainer 3LB">
-    <h3>Smart Gainer 3LB</h3>
-    <p class="old-price">$98,000</p>
-    <p class="price">$90,000</p>
-    <button class="boton" onclick="agregarAlCarrito('Smart Gainer 3LB', 90000)">Agregar al carrito</button>
-  </div>
+    <div class="producto">
+      <span class="oferta">¡OFERTA!</span>
+      <img src="https://via.placeholder.com/200x200.png?text=SMART+3LB" alt="Smart Gainer 3LB">
+      <h2>Smart Gainer 3LB</h2>
+      <p class="precio-anterior">$98,000</p>
+      <p class="precio">$90,000</p>
+      <button class="boton" onclick="agregarAlCarrito('Smart Gainer 3LB', 90000)">Agregar al carrito</button>
+    </div>
 
-  <div class="card">
-    <span class="oferta">¡OFERTA!</span>
-    <img src="https://via.placeholder.com/200x200.png?text=TNT+3LB" alt="TNT Mega Mass Gainer 3LB">
-    <h3>TNT Mega Mass Gainer 3LB</h3>
-    <p class="old-price">$97,000</p>
-    <p class="price">$77,000</p>
-    <button class="boton" onclick="agregarAlCarrito('TNT Mega Mass Gainer 3LB', 77000)">Agregar al carrito</button>
-  </div>
+    <div class="producto">
+      <span class="oferta">¡OFERTA!</span>
+      <img src="https://via.placeholder.com/200x200.png?text=TNT+3LB" alt="TNT Mega Mass Gainer 3LB">
+      <h2>TNT Mega Mass Gainer 3LB</h2>
+      <p class="precio-anterior">$97,000</p>
+      <p class="precio">$77,000</p>
+      <button class="boton" onclick="agregarAlCarrito('TNT Mega Mass Gainer 3LB', 77000)">Agregar al carrito</button>
+    </div>
 
-  <div class="card">
-    <span class="oferta">¡OFERTA!</span>
-    <img src="https://via.placeholder.com/200x200.png?text=CARNIVOR+6LB" alt="Carnivor Mass 6LB">
-    <h3>Carnivor Mass 6LB</h3>
-    <p class="old-price">$272,000</p>
-    <p class="price">$252,000</p>
-    <button class="boton" onclick="agregarAlCarrito('Carnivor Mass 6LB', 252000)">Agregar al carrito</button>
+    <div class="producto">
+      <span class="oferta">¡OFERTA!</span>
+      <img src="https://via.placeholder.com/200x200.png?text=CARNIVOR+6LB" alt="Carnivor Mass 6LB">
+      <h2>Carnivor Mass 6LB</h2>
+      <p class="precio-anterior">$272,000</p>
+      <p class="precio">$252,000</p>
+      <button class="boton" onclick="agregarAlCarrito('Carnivor Mass 6LB', 252000)">Agregar al carrito</button>
+    </div>
   </div>
-</div>
-
 
   <!-- Pie de página -->
-  <footer>
+  <footer class="footer">
     <p>&copy; 2025 New Athletic Clothes - Suplementación deportiva</p>
   </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>
