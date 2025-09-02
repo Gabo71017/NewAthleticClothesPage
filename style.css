@@ -142,9 +142,10 @@ header img {
   width: 100%;
 }
 .boton:hover {
-  background: #FFD700;
-  color: #000;
+  background: #fff;   /* fondo blanco */
+  color: #000;        /* texto negro */
   transform: scale(1.05);
+  border: 1px solid #000; /* opcional: para que se note el borde */
 }
 
 /* Oferta */
