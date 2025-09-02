@@ -87,17 +87,47 @@ header img {
   position: relative;
   transition: transform 0.2s, box-shadow 0.2s;
 
-  /* 👇 Hacemos que el contenido se organice en columna */
+  /* Organizamos en columna */
   display: flex;
   flex-direction: column;
 }
 
-.producto h3 {
-  flex-grow: 1;  /* 👈 Esto empuja el botón hacia abajo */
+.producto img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 15px;
 }
 
+/* El título crece para empujar hacia abajo */
+.producto h3 {
+  flex-grow: 1;
+}
+
+/* Contenedor de precios */
+.precio-container {
+  min-height: 40px; /* asegura que todos ocupen el mismo espacio */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.precio-anterior {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 14px;
+}
+
+.precio {
+  font-size: 18px;
+  color: #000;
+  font-weight: bold;
+  margin: 5px 0 15px;
+}
+
+/* Botón siempre al final */
 .boton {
-  margin-top: auto; /* 👈 Esto asegura que quede siempre alineado abajo */
+  margin-top: auto;
 }
 
 .producto:hover {
