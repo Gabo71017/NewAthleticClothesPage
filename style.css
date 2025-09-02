@@ -84,20 +84,22 @@ body {
 
 .boton {
   margin-top: 10px;
-  background: #facc15;
-  color: #000;
+  background: #000;              /* Fondo negro */
+  color: #fff;                   /* Texto blanco */
   border: none;
-  padding: 10px 14px;
-  font-size: 0.9rem;
+  padding: 12px;
+  font-size: 0.95rem;
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
+  font-family: 'Montserrat', sans-serif; /* Tipografía */
 }
 
 .boton:hover {
-  background: #eab308;
+  background: #FFD700;  /* Amarillo al pasar el mouse */
+  color: #000;          /* Texto negro en hover */
   transform: scale(1.05);
 }
 
