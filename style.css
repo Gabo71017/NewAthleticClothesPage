@@ -97,7 +97,8 @@ header img {
   margin-bottom: 15px;
 }
 .oferta {
-  background: #facc15;
+  background: #000000;
+  color: #ffffff;
   padding: 5px 8px;
   font-size: 12px;
   font-weight: bold;
@@ -113,7 +114,7 @@ header img {
 }
 .precio {
   font-size: 18px;
-  color: #dc2626;
+  color: #000000;
   font-weight: bold;
   margin: 5px 0 15px;
 }
